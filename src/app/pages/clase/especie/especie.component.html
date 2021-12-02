@@ -1,0 +1,30 @@
+<button type="button" class="btn btn-primary float-right mt-3 mb-3" (click)="openModal()">Nuevo</button>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Observacion</th>
+      <th>Lugar de Rescate</th>
+      <th>Fecha Ingreso</th>
+      <th colspan="2" class="text-center">Opciones</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let especie of especies">
+    <tr>
+      <td>{{especie.espeId}}</td>
+      <td>{{especie.espeNombre}}</td>
+      <td>{{especie.espeObservacion}}</td>
+      <td>{{especie.espeLugarRescate}}</td>
+      <td>{{especie.espeFecha | date: 'dd/MM/yyyy'}}</td>
+      <td class="text-center">
+        <button type="button" class="btn btn-warning" (click)="openModalEdit(especie)">Editar</button>
+      </td>
+      <td class="text-center">
+        <button type="button" class="btn btn-danger" (click)="onDelete(especie)">Eliminar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
